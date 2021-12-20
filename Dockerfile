@@ -1,6 +1,7 @@
 FROM openjdk:16-jdk-alpine
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+#RG JAR_FILE=target/DockerDemo.jar
+#COPY ${JAR_FILE} app.jar
+COPY --from=build target/DockerDemo.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
