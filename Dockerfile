@@ -3,5 +3,5 @@ RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 #ARG JAR_FILE=target/DockerDemo.jar
 WORKDIR ./target
-COPY ./DockerDemo.jar app.jar
+COPY ./*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
